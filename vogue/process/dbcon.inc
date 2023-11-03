@@ -1,10 +1,10 @@
 <?php
 
-/// DB연결 문자열 ////
+/// DB연결 문자열 ///
 $servername = "localhost";//DB서버명
-$username = "mjhost";//닷홈아이디
-$password = "hostmj97!";//닷홈비번
-$dbname = "mjhost";//닷홈DB명
+$username = "root";//DB최고관리자권한
+$password = "";//root에는 비번이 없음
+$dbname = "mydb";//사용DB명
 
 /// DB서버와 연결하기 ///
 $conn = new mysqli(
