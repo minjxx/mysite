@@ -3,7 +3,7 @@
 /// DB연결 문자열 ///
 $servername = "localhost";//DB서버명
 $username = "mjhost";//닷홈아이디
-$password = "rlatjsgh3!";//닷홈비번
+$password = "hostmj97!";//닷홈비번
 $dbname = "mjhost";//닷홈DB명
 
 /// DB서버와 연결하기 ///
