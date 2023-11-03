@@ -177,12 +177,11 @@ form.logF input[type=password]`)
 
                 2) get 방식 처리 메서드
                 - $.get(URL,callback)
-                -> get방식은 URL로 키=값 형식으로
-                데이터전송함!
+                -> get방식은 URL로 키=값 형식으로 데이터전송함!
 
                 3) 위의 2가지 유형 중 처리선택 메서드
                 - $.ajax({
-                    전송할페이지, 
+                    전송할페이지,
                     전송방식,
                     보낼데이터,
                     전송할데이터타입,
@@ -193,48 +192,47 @@ form.logF input[type=password]`)
                 -> 보내는 값은 하나(객체데이터)
                 -> 객체안에 7가지 유형의 데이터를 보냄!
             */
-            $.ajax({
-                //1.전송할페이지(url)
-                url:"./process/chkID.php",
-                //2.전송방식(type)
-                type:"post",
-                //3.보낼데이터(data) - 객체형식
-                data:{"mid":$('#mid').val()},
-                //4.전송할데이터타입(dataType)
-                dataType:"html",
-                //5.비동기옵션(async)
-                // -> 비동기옵션은 본처리를 비동기적으로
-                // 처리하겠다는 것임(기본값 true)
-                // false로 해야 동기화 처리되어
-                // 불통과시 pass=false가 유효함!
-                async:false,
-                //6.성공처리(success)
-                success: function(res){
-                    // res - 리턴된 결과값
-                    if(res=='ok'){
-                        $('#mid').siblings('.msg')
-                        .text('멋진 아이디네요~!')
-                        .addClass('on');
-                    } //// if : ok시 ///////
-                    // 아이디가 중복일 경우
-                    else{
-                        $('#mid').siblings('.msg')
-                        .text('이미 사용중인 아이디입니다!')
-                        .removeClass('on');
-                        // [ 불통과시 pass값 변경추가 ]
-                        pass = false;
-                        console.log('중복ID:',pass);
-                    } /// else : 아이디중복 //////
-                },
-                // 7.실패처리(error)
-                // xhr - XMLHttpRequest객체
-                // status - 실패상태코드
-                // error - 에러결과값
-                error:function(xhr,status,error){
-                    alert('연결처리실패:'+error);
-                } ///// error /////
-            }); ///////////// ajax 메서드 ////////////
-
+                $.ajax({
+                    //1.전송할페이지(url)
+                    url:"./process/chkID.php",
+                    //2.전송방식(type)
+                    type:"post",
+                    //3.보낼데이터(data) - 객체형식
+                    data:{"mid":$('#mid').val()},
+                    //4.전송할데이터타입(dataType)
+                    dataType:"html",
+                    //5.비동기옵션
+                    // -> 비동기옵션은 본처리를 비동기적으로
+                    // 처리하겠다는 것임(기본값 true)
+                    // false로 해야 동기화 처리되어
+                    // 불통과시 pass=false가 유효함!
+                    async:false,
+                    //6.성공처리(success)
+                    success: function(res){
+                        // res - 리턴된 결과값
+                        if(res=='ok'){
+                            $('#mid').siblings('.msg')
+                            .text('멋진 아이디네요~!')
+                            .addClass('on');
+                        }//// if : ok시 ///////
+                        // 아이디가 중복일 경우 //
+                        else{
+                            $('#mid').siblings('.msg')
+                            .text('이미 사용중인 아이디입니다!')
+                            .removeClass('on');
+                            //[ 불통과시 pass값 변경추가 ]
+                            pass = false;
+                            console.log('중복ID:',pass);
+                        } /// else : 아이디중복 ////
+                    },
+                    // 7.실패처리(error)
+                    // xhr - XMLHttpRequest객체
+                    // status - 실패상태코드
+                    // error - 에러결과값
+                    error:function(xhr,status,error){
+                        alert('연결처리실패:'+error);
+                    } ////// error //////
+                }); //////////// ajax 메서드 ///////////
 
             // 1. DB에 조회하여 같은 아이디가 있다면
             // '이미 사용중인 아이디입니다' 와 같은 메시지출력
@@ -645,5 +643,3 @@ function vReg(val, cid) {
 
 } //////////// vReg 함수 //////////////////////////////
 ///////////////////////////////////////////////////////
-
-
