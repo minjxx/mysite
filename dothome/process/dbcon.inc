@@ -1,6 +1,6 @@
 <?php
 
-/// DB연결 문자열 ///
+/// DB연결 문자열 ////
 $servername = "localhost";//DB서버명
 $username = "mjhost";//닷홈아이디
 $password = "hostmj97!";//닷홈비번
